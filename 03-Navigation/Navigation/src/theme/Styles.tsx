@@ -8,9 +8,21 @@ export const styles = StyleSheet.create({
         fontSize:30,
         marginBottom:10
     },
+    fila:{
+        flexDirection:'row'
+    },
     botonGrande:{
         width:100,
         height:100,
-        backgroundColor:'red'
+        backgroundColor:'#FF9427',
+        marginRight:20,
+        borderRadius:15,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    botonGrandeText:{
+        color:'white',
+        fontWeight:'bold'
     }
+
 });

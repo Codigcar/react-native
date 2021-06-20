@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import { View, Text } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { styles } from '../theme/Styles';
+import { RootStackParams } from '../navigator/StackNavigator';
 
-interface Props extends StackScreenProps<any, any>{};
+interface Props extends StackScreenProps<RootStackParams, 'PersonaScreen'>{};
 
 export const PersonaScreen = ({route, navigation}:Props) => {
     const params = route.params;
@@ -11,7 +12,7 @@ export const PersonaScreen = ({route, navigation}:Props) => {
     useEffect(() => {
         navigation.setOptions({
             // titulo de la ventana
-            title: params!.nombre as any
+            title: params.nombre
         })
     }, [])
 

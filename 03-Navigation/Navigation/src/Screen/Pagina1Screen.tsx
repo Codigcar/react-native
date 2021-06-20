@@ -18,11 +18,11 @@ export const Pagina1Screen = ({navigation}: Props) => {
       />
       <Button
         title="Persona"
-        onPress={() => navigation.navigate('PersonScreen')}
+        onPress={() => navigation.navigate('PersonaScreen')}
         color="blue"
       />
       <Text>Navegar con argumentos</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('PersonScreen',{id: 1,nombre:'Carlos'})}>
+      <TouchableOpacity onPress={() => navigation.navigate('PersonaScreen',{id: 1,nombre:'Carlos'})}>
         <Text>Carlos</Text>
       </TouchableOpacity>
     </View>

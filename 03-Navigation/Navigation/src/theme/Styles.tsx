@@ -30,6 +30,17 @@ export const styles = StyleSheet.create({
         borderRadius:100
     },
     avatarFondo:{
-        alignItems:'center'
+        alignItems:'center',
+        marginTop:20
+    },
+    menuContainer:{
+        alignItems:'center',
+        marginVertical:20
+    },
+    menuBoton:{
+        marginVertical:7
+    },
+    menuTexto:{
+        color:'black'
     }
 });

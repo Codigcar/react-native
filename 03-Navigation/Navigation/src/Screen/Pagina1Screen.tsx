@@ -19,7 +19,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>Pagina1</Text>
-      <Text>Navegar entre pantallas</Text>
+      <Text style={{marginVertical:15}}>Navegar entre pantallas</Text>
       <Button
         title="Ir a pagina2"
         onPress={() => navigation.navigate('Pagina2Screen')}
@@ -30,7 +30,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
         onPress={() => navigation.navigate('PersonaScreen')}
         color="blue"
       />
-      <Text>Navegar con argumentos</Text>
+      <Text style={{marginVertical:15}}>Navegar con argumentos</Text>
 
       <View style={styles.fila}>
         <TouchableOpacity style={{...styles.botonGrande, backgroundColor:'#5856D6'}} onPress={() => navigation.navigate('PersonaScreen',{id: 1,nombre:'Carlos'})}>

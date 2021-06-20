@@ -4,12 +4,14 @@ import { View, Text, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { StackNavigator } from './src/navigator/StackNavigator';
 import { MenuLateralBasico } from './src/navigator/MenuLateralBasico';
+import { MenuLateralAvatar } from './src/navigator/MenuLateralAvatar';
 
 const App = () => {
     return (
       <NavigationContainer>
         {/* <StackNavigator /> */}
-        <MenuLateralBasico />
+        {/* <MenuLateralBasico /> */}
+        <MenuLateralAvatar />
         
       </NavigationContainer>
     )

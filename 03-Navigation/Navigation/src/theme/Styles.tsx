@@ -23,6 +23,13 @@ export const styles = StyleSheet.create({
     botonGrandeText:{
         color:'white',
         fontWeight:'bold'
+    },
+    avatar:{
+        width:150,
+        height:150,
+        borderRadius:100
+    },
+    avatarFondo:{
+        alignItems:'center'
     }
-
 });

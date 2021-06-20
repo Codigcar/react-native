@@ -31,11 +31,11 @@ const MenuInterno = (props: DrawerContentComponentProps<DrawerContentOptions>) =
 
             {/* OPCIONES DEL MENU */}
             <View style={styles.menuContainer}>
-                <TouchableOpacity style={styles.menuBoton}>
+                <TouchableOpacity style={styles.menuBoton} onPress={()=> props.navigation.navigate('StackNavigator')}>
                     <Text style={styles.menuTexto}>Navegacion</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.menuBoton}>
+                <TouchableOpacity style={styles.menuBoton} onPress={()=> props.navigation.navigate('SettingsScreen')}>
                     <Text style={styles.menuTexto}>Ajustes</Text>
                 </TouchableOpacity>
             </View>

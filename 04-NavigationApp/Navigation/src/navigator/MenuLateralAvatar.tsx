@@ -18,7 +18,6 @@ export const MenuLateralAvatar=() => {
     drawerContent={(props) => <MenuInterno {...props} />} >
       <Drawer.Screen name="StackNavigator"  component={StackNavigator} />
       <Drawer.Screen name="SettingsScreen"  component={SettingsScreen} />
-      <Drawer.Screen name="Tabs"  component={Tabs} />
     </Drawer.Navigator>
   );
 }
@@ -41,9 +40,6 @@ const MenuInterno = (props: DrawerContentComponentProps<DrawerContentOptions>) =
                     <Text style={styles.menuTexto}>Ajustes</Text>
                 </TouchableOpacity>
                 
-                <TouchableOpacity style={styles.menuBoton} onPress={()=> props.navigation.navigate('Tabs')}>
-                    <Text style={styles.menuTexto}>TabsNavigator</Text>
-                </TouchableOpacity>
             </View>
         </DrawerContentScrollView>
     );

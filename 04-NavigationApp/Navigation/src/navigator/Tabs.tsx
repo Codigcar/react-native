@@ -1,18 +1,59 @@
 import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Tab1Screen} from '../Screen/Tab1Screen';
 import {Tab2Screen} from '../Screen/Tab2Screen';
 import {Tab3Screen} from '../Screen/Tab3Screen';
 import {StackNavigator} from './StackNavigator';
 import {colores} from '../theme/Styles';
-import { Text } from 'react-native';
-
-const Tab = createBottomTabNavigator();
+import { Platform, Text } from 'react-native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 export const Tabs = () => {
+  return Platform.OS === 'ios'
+        ? <TabsOS />
+        :<TabsAndroid />
+}
+
+const TabAndroid = createMaterialBottomTabNavigator();
+
+const TabsAndroid=()=> {
   return (
-    <Tab.Navigator
+    <TabAndroid.Navigator
+    sceneAnimationEnabled={true}
+    barStyle={{
+      backgroundColor: colores.primary
+    }}
+    screenOptions={({route}) => ({
+      tabBarIcon:({color, focused}) => {
+        let iconName: string = '';
+        switch (route.name) {
+          case 'Tab1Screen':
+            iconName='SN'
+          break;
+          case 'Tab2Screen':
+            iconName='T2'
+          break;
+          case 'Tab3Screen':
+            iconName='T3'
+          break;
+        }
+        return <Text style={{color: color}}>{iconName}</Text>
+      }
+    })}
+    >
+      <TabAndroid.Screen name="Tab1Screen" component={StackNavigator} />
+      <TabAndroid.Screen name="Tab2Screen" component={Tab2Screen} />
+      <TabAndroid.Screen name="Tab3Screen" component={Tab3Screen} />
+    </TabAndroid.Navigator>
+  );
+}
+
+
+const TabOS = createBottomTabNavigator();
+
+const TabsOS = () => {
+  return (
+    <TabOS.Navigator
       tabBarOptions={{
         activeTintColor: colores.primary,
         style: {
@@ -43,9 +84,9 @@ export const Tabs = () => {
       })}
       >
       {/* <Tab.Screen name="Tab1Screen" options={{title:'Tab1', tabBarIcon: (props) => <Text style={{color:props.color}} >Hola</Text> }} component={StackNavigator} /> */}
-      <Tab.Screen name="Tab1Screen" component={StackNavigator} />
-      <Tab.Screen name="Tab2Screen" component={Tab2Screen} />
-      <Tab.Screen name="Tab3Screen" component={Tab3Screen} />
-    </Tab.Navigator>
+      <TabOS.Screen name="Tab1Screen" component={StackNavigator} />
+      <TabOS.Screen name="Tab2Screen" component={Tab2Screen} />
+      <TabOS.Screen name="Tab3Screen" component={Tab3Screen} />
+    </TabOS.Navigator>
   );
 };

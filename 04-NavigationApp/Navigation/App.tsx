@@ -6,6 +6,7 @@ import { StackNavigator } from './src/navigator/StackNavigator';
 import { MenuLateralBasico } from './src/navigator/MenuLateralBasico';
 import { MenuLateralAvatar } from './src/navigator/MenuLateralAvatar';
 import { Tabs } from './src/navigator/Tabs';
+import { TopTabNavigator } from './src/navigator/TopTabNavigator';
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
         {/* <MenuLateralBasico /> */}
         {/* <MenuLateralAvatar /> */}
         <Tabs />
+        {/* <TopTabNavigator /> */}
       </NavigationContainer>
     )
 }

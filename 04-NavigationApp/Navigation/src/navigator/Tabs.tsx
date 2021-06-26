@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Tab2Screen} from '../Screen/Tab2Screen';
@@ -7,6 +8,7 @@ import {StackNavigator} from './StackNavigator';
 import {colores} from '../theme/Styles';
 import { Platform, Text } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
 
 export const Tabs = () => {
   return Platform.OS === 'ios'
@@ -28,16 +30,17 @@ const TabsAndroid=()=> {
         let iconName: string = '';
         switch (route.name) {
           case 'Tab1Screen':
-            iconName='SN'
+            iconName='bandage-outline'
           break;
           case 'Tab2Screen':
-            iconName='T2'
+            iconName='basketball-outline'
           break;
           case 'Tab3Screen':
-            iconName='T3'
+            iconName='bookmarks-outline'
           break;
         }
-        return <Text style={{color: color}}>{iconName}</Text>
+        // return <Text style={{color: color}}>{iconName}</Text>
+        return <Icon name={iconName} size={20} color={color} />
       }
     })}
     >

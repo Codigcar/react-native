@@ -7,16 +7,27 @@ import { MenuLateralBasico } from './src/navigator/MenuLateralBasico';
 import { MenuLateralAvatar } from './src/navigator/MenuLateralAvatar';
 import { Tabs } from './src/navigator/Tabs';
 import { TopTabNavigator } from './src/navigator/TopTabNavigator';
+import { AuthProvider } from './src/context/AuthContext';
 
 const App = () => {
     return (
       <NavigationContainer>
-        {/* <StackNavigator /> */}
-        {/* <MenuLateralBasico /> */}
-        {/* <MenuLateralAvatar /> */}
-        <Tabs />
-        {/* <TopTabNavigator /> */}
+        <AppStateContext>
+          {/* <StackNavigator /> */}
+          {/* <MenuLateralBasico /> */}
+          {/* <MenuLateralAvatar /> */}
+          <Tabs />
+          {/* <TopTabNavigator /> */}
+        </AppStateContext>
       </NavigationContainer>
     )
+}
+
+const AppStateContext = ({children}: any) => {
+  return (
+    <AuthProvider>
+      {children}
+    </AuthProvider>
+  )
 }
 export default App

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { createContext } from "react"
+import { authReducer } from './authReducer';
 
 
 // Definir cómo luce, qué información tendré aqui
@@ -28,6 +29,9 @@ export const AuthContext = createContext({} as AuthContextProps);
 
 // Componentes proveedor del estado
 export const AuthProvider = ({children}:any) => {
+
+    const [authState, dispatch] = useReducer(authReducer, authInitialState);
+
     return (
         <AuthContext.Provider value={{
             authState: authInitialState,

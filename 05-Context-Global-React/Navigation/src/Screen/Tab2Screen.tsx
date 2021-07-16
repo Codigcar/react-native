@@ -5,6 +5,7 @@ import { View, Text, Button } from 'react-native';
 import { colores, styles } from '../theme/Styles';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { TouchableIconComponent } from '../components/TouchableIconComponent';
 
 export const Tab2Screen = () => {
     console.log('Tab2Screen');
@@ -14,7 +15,9 @@ export const Tab2Screen = () => {
     return (
         <View>
             <Text>Tab2Screen</Text>
-            <Icon name="airplane-outline" size={80} color={colores.primary}></Icon>
+            
+            <TouchableIconComponent iconName="airplane-outline" />
+            
             <View style={styles.globalMargin}>
                 <Text>Login</Text>
                 {

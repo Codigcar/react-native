@@ -11,9 +11,7 @@ import { TouchableOpacity } from 'react-native';
 export const Tab2Screen = () => {
     console.log('Tab2Screen');
 
-    const {signIn, authState} = useContext(AuthContext);
-    
-    const imprimir = () => console.log('prueba');
+    const {signIn, authState:{isLoggedIn}, logout} = useContext(AuthContext);
     
 
     return (
@@ -24,7 +22,14 @@ export const Tab2Screen = () => {
             <View style={styles.globalMargin}>
                 <Text>Login</Text>
                 {
-                   !authState.isLoggedIn && <Button title="SignIng" onPress={signIn}></Button>
+                   !isLoggedIn && <Button title="SignIng" onPress={signIn}></Button>
+                }
+                <Text>Logout</Text>
+                {
+                    /* authState.isLoggedIn */ 
+                    isLoggedIn && (
+                        <Button title="logout" onPress={logout} color='red' />
+                    )
                 }
             </View>
         </View>

@@ -1,12 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { useEffect } from 'react';
-import { View, Text, Button, ActivityIndicator } from 'react-native';
+import { View, Text, Button, ActivityIndicator, Dimensions } from 'react-native';
 import movieDB from '../api/movieDB';
 import { MovieDBNowPlaying } from '../interface/movieInterface';
 import { useMovies } from '../hooks/useMovies';
 import { MoviePoster } from '../components/MoviePoster';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import Carousel from 'react-native-snap-carousel';
+
+const windowWidth = Dimensions.get('window').width;
 
 export const HomeScreen = () => {
 
@@ -26,7 +29,19 @@ export const HomeScreen = () => {
         <View style={{marginTop: top + 20}}>
             {/* <Text>HomeScreen</Text>
             <Button title='ir a Detail' onPress={() => navigation.navigate('DetailScreen')}></Button> */}
-            <MoviePoster movie={peliculasActualesEnCine[8]} />
+
+            {/* <MoviePoster movie={peliculasActualesEnCine[8]} /> */}
+
+            <View style={{/* backgroundColor:'red', */ height:440}}>
+                <Carousel
+                    data={peliculasActualesEnCine}
+                    renderItem={({item}:any) => <MoviePoster movie={item} /> }
+                    // renderItem={() => <MoviePoster movie={peliculasActualesEnCine[8]} /> }
+                    sliderWidth={ windowWidth }
+                    itemWidth={300}
+                />
+            </View>
+
         </View>
         
     )

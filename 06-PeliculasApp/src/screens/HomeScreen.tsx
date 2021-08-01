@@ -12,9 +12,9 @@ export const HomeScreen = () => {
     const {peliculasActualesEnCine, isLoading} = useMovies();
     // console.log(peliculasActualesEnCine[0]);
     
-    if (isLoading) {
+    if (true) {
         return (
-            <View>
+            <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
                 <ActivityIndicator color="red" size={100} />
             </View>
         )

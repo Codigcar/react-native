@@ -3,7 +3,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { View, Text, Button, ActivityIndicator, Dimensions, FlatList, ScrollView } from 'react-native';
 import movieDB from '../api/movieDB';
-import { MovieDBNowPlaying } from '../interface/movieInterface';
+import { MovieDBResponse } from '../interface/movieInterface';
 import { useMovies } from '../hooks/useMovies';
 import { MoviePoster } from '../components/MoviePoster';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -15,7 +15,7 @@ const windowWidth = Dimensions.get('window').width;
 export const HomeScreen = () => {
 
     const navigation = useNavigation();
-    const { peliculasActualesEnCine, isLoading } = useMovies();
+    const { peliculasActualesEnCine, isLoading, peliculasOtrasPeliculas } = useMovies();
     const { top } = useSafeAreaInsets();
 
     if (isLoading) {
@@ -46,10 +46,10 @@ export const HomeScreen = () => {
                 </View>
 
                 {/* Peliculas populares */}
-                <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />    
-                <HorizontalSlider  peliculasActualesEnCine={peliculasActualesEnCine}  />    
-                <HorizontalSlider  peliculasActualesEnCine={peliculasActualesEnCine}  />    
-                <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />    
+                {/* <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />     */}
+                <HorizontalSlider title="Populares" peliculasActualesEnCine={peliculasOtrasPeliculas}  />    
+                {/* <HorizontalSlider  peliculasActualesEnCine={peliculasOtrasPeliculas}  />     */}
+                {/* <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />     */}
 
             </View>
         </ScrollView>

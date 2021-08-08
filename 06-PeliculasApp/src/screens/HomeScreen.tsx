@@ -8,6 +8,7 @@ import { useMovies } from '../hooks/useMovies';
 import { MoviePoster } from '../components/MoviePoster';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Carousel from 'react-native-snap-carousel';
+import { HorizontalSlider } from '../components/HorizontalSlider';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -40,42 +41,15 @@ export const HomeScreen = () => {
                         // renderItem={() => <MoviePoster movie={peliculasActualesEnCine[8]} /> }
                         sliderWidth={windowWidth}
                         itemWidth={280}
+                        inactiveSlideOpacity={0.9}
                     />
                 </View>
 
                 {/* Peliculas populares */}
-                <View style={{ backgroundColor: 'red', height: 260 }}>
-                    <Text style={{ fontSize: 30, fontWeight: 'bold' }}>En cine</Text>
-                    <FlatList
-                        // las peliculas a mostrar
-                        data={peliculasActualesEnCine}
-                        // mostrar todos las peliculas con el componente
-                        renderItem={({ item }: any) => <MoviePoster movie={item} width={140} height={200} />}
-                        // importante siempre colcoar un Id para que REACT identifique
-                        keyExtractor={(item) => item.id.toString()}
-                        // volverlo horizontal
-                        horizontal={true}
-                        // eliminar el icono de scroll y no oculte
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-
-                {/* Peliculas populares */}
-                <View style={{ backgroundColor: 'red', height: 250 }}>
-                    <Text style={{ fontSize: 30, fontWeight: 'bold' }}>En cine</Text>
-                    <FlatList
-                        // las peliculas a mostrar
-                        data={peliculasActualesEnCine}
-                        // mostrar todos las peliculas con el componente
-                        renderItem={({ item }: any) => <MoviePoster movie={item} width={140} height={200} />}
-                        // importante siempre colcoar un Id para que REACT identifique
-                        keyExtractor={(item) => item.id.toString()}
-                        // volverlo horizontal
-                        horizontal={true}
-                        // eliminar el icono de scroll y no oculte
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
+                <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />    
+                <HorizontalSlider  peliculasActualesEnCine={peliculasActualesEnCine}  />    
+                <HorizontalSlider  peliculasActualesEnCine={peliculasActualesEnCine}  />    
+                <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />    
 
             </View>
         </ScrollView>

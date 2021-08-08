@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Movie } from '../interface/movieInterface';
 
 interface Props {
     movie: Movie;
+    height?: number;
+    width?:number;
 }
 
-export const MoviePoster = ({ movie }: Props) => {
+export const MoviePoster = ({ movie, height = 380, width = 280 }: Props) => {
     // console.log(movie.poster_path);
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
     return (
         <View style={{
-            width: 300,
-            height: 420,
+            width: width,
+            height: height,
             // backgroundColor: 'red' 
+            marginHorizontal: 5
         }}>
-            <Text>{movie.title}</Text>
+            {/* <Text>{movie.title}</Text> */}
             <View style={styles.imageContainer}>
                 <Image
                     source={{ uri: uri }}
                     style={styles.image}
                 />
             </View>
+         
         </View>
     );
 };

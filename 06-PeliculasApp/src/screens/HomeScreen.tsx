@@ -15,7 +15,7 @@ const windowWidth = Dimensions.get('window').width;
 export const HomeScreen = () => {
 
     const navigation = useNavigation();
-    const { peliculasActualesEnCine, isLoading, peliculasOtrasPeliculas } = useMovies();
+    const { peliculasActualesEnCine, isLoading, peliculasPopulares, peliculasMasValoradas, peliculasProximas } = useMovies();
     const { top } = useSafeAreaInsets();
 
     if (isLoading) {
@@ -47,9 +47,11 @@ export const HomeScreen = () => {
 
                 {/* Peliculas populares */}
                 {/* <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />     */}
-                <HorizontalSlider title="Populares" peliculasActualesEnCine={peliculasOtrasPeliculas}  />    
+                <HorizontalSlider title="Populares" peliculasActualesEnCine={peliculasPopulares}  />    
                 {/* <HorizontalSlider  peliculasActualesEnCine={peliculasOtrasPeliculas}  />     */}
                 {/* <HorizontalSlider title="En cine" peliculasActualesEnCine={peliculasActualesEnCine}  />     */}
+                <HorizontalSlider title="Más Valoradas" peliculasActualesEnCine={peliculasMasValoradas}  />    
+                <HorizontalSlider title="Proximas" peliculasActualesEnCine={peliculasProximas}  />    
 
             </View>
         </ScrollView>

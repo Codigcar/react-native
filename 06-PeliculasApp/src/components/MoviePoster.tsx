@@ -23,7 +23,9 @@ export const MoviePoster = ({ movie, height = 380, width = 280 }: Props) => {
                 width: width,
                 height: height,
                 // backgroundColor: 'red' 
-                marginHorizontal: 5
+                marginHorizontal: 7,
+                paddingBottom: 20
+
             }}
         >
             
@@ -56,6 +58,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.24,
         shadowRadius: 7,
-        elevation: 10
+        elevation: 20
     }
 });

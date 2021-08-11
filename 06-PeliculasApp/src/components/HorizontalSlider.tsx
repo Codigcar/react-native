@@ -10,7 +10,7 @@ interface Props {
 
 export const HorizontalSlider = ({title, peliculasActualesEnCine}: Props) => {
     return (
-        <View style={{ backgroundColor: 'red', height: (title) ? 260 : 220 }}>
+        <View style={{ backgroundColor: 'white', height: (title) ? 260 : 220 }}>
             {
                  title && <Text style={{ fontSize: 30, fontWeight: 'bold', marginLeft: 10 }}>{title}</Text>
             }

@@ -25,7 +25,9 @@ export const DetailScreen = ({ route }: Props) => {
     return (
         <ScrollView>
             <View style={styles.imageContainer}>
-                <Image source={{ uri }} style={styles.posterImage} />
+                <View style={styles.imageBorder}>
+                    <Image source={{ uri }} style={styles.posterImage} />
+                </View>
             </View>
             <View style={styles.marginContainer}>
                 <Text style={styles.subTitle}>{movie.original_title}</Text>
@@ -37,12 +39,11 @@ export const DetailScreen = ({ route }: Props) => {
 const styles = StyleSheet.create({
     posterImage: {
         flex: 1,
-
     },
     imageContainer: {
         width: '100%',
         height: altoDeLaVentana * 0.7,
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         // paddingBottom:15,
         shadowColor: '#000',
         shadowOffset: {
@@ -50,9 +51,15 @@ const styles = StyleSheet.create({
             height: 10,
         },
         shadowOpacity: 0.24,
-        shadowRadius: 7,
+        shadowRadius: 3,
         elevation: 20,
-
+        // overflow: 'hidden'
+        borderBottomEndRadius: 25,
+        borderBottomStartRadius: 25,
+    },
+    imageBorder:{
+        flex: 1,
+        backgroundColor:'red',
         borderBottomEndRadius: 25,
         borderBottomStartRadius: 25,
         overflow: 'hidden'

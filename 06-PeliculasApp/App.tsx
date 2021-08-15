@@ -7,7 +7,7 @@ import { MyStackNavigation } from './src/navigation/Navigation';
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex:1, backgroundColor:'red'}}>
+    <SafeAreaView style={{flex:1, backgroundColor:'white'}}>
       <NavigationContainer>
         <MyStackNavigation />
       </NavigationContainer>

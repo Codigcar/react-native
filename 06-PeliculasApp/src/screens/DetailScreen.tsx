@@ -25,8 +25,11 @@ export const DetailScreen = ({ route }: Props) => {
 
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
-    useMovieDetails(movie.id);
-
+    const {isLoading, movieObtenida, creditos} = useMovieDetails(movie.id);
+    
+    console.log('creditos: ',creditos);
+    
+    
 
     return (
         <ScrollView>
@@ -40,7 +43,7 @@ export const DetailScreen = ({ route }: Props) => {
                 <Text style={styles.subTitle}>{movie.original_title}</Text>
                 <Text style={styles.title}>{movie.title}</Text>
             </View>
-            
+
             <View style={styles.marginContainer}>
                 <Icon name="star-outline" color="grey" size={20} />
             </View>
@@ -69,9 +72,9 @@ const styles = StyleSheet.create({
         borderBottomEndRadius: 25,
         borderBottomStartRadius: 25,
     },
-    imageBorder:{
+    imageBorder: {
         flex: 1,
-        backgroundColor:'red',
+        backgroundColor: 'red',
         borderBottomEndRadius: 25,
         borderBottomStartRadius: 25,
         overflow: 'hidden'

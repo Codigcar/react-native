@@ -5,6 +5,9 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import { Movie } from '../interface/movieInterface';
 import { ArgumentosNecesarios } from '../navigation/Navigation';
 
+// npm i --save-dev @types/react-native-vector-icons
+import Icon from 'react-native-vector-icons/Ionicons';
+
 const altoDeLaVentana = Dimensions.get('screen').height;
 
 
@@ -29,10 +32,18 @@ export const DetailScreen = ({ route }: Props) => {
                     <Image source={{ uri }} style={styles.posterImage} />
                 </View>
             </View>
+
             <View style={styles.marginContainer}>
                 <Text style={styles.subTitle}>{movie.original_title}</Text>
                 <Text style={styles.title}>{movie.title}</Text>
             </View>
+            
+            <View style={styles.marginContainer}>
+                <Icon>
+
+                </Icon>
+            </View>
+
         </ScrollView>
     )
 }

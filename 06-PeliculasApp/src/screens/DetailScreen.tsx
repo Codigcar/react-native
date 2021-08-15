@@ -7,6 +7,7 @@ import { ArgumentosNecesarios } from '../navigation/Navigation';
 
 // npm i --save-dev @types/react-native-vector-icons
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useMovieDetails } from '../hooks/useMovieDetails';
 
 const altoDeLaVentana = Dimensions.get('screen').height;
 
@@ -23,6 +24,8 @@ export const DetailScreen = ({ route }: Props) => {
     console.log('movie title: ', movie.title);
 
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+    useMovieDetails(movie.id);
 
 
     return (

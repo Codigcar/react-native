@@ -39,9 +39,7 @@ export const DetailScreen = ({ route }: Props) => {
             </View>
             
             <View style={styles.marginContainer}>
-                <Icon>
-
-                </Icon>
+                <Icon name="star-outline" color="grey" size={20} />
             </View>
 
         </ScrollView>

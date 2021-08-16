@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
-import { Dimensions, ScrollView } from 'react-native';
+import { Dimensions, ScrollView, ActivityIndicator } from 'react-native';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Movie } from '../interface/movieInterface';
 import { ArgumentosNecesarios } from '../navigation/Navigation';
@@ -8,6 +8,7 @@ import { ArgumentosNecesarios } from '../navigation/Navigation';
 // npm i --save-dev @types/react-native-vector-icons
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useMovieDetails } from '../hooks/useMovieDetails';
+import { MovieDetail } from '../hooks/MovieDetail';
 
 const altoDeLaVentana = Dimensions.get('screen').height;
 
@@ -44,9 +45,15 @@ export const DetailScreen = ({ route }: Props) => {
                 <Text style={styles.title}>{movie.title}</Text>
             </View>
 
-            <View style={styles.marginContainer}>
+            {/* <View style={styles.marginContainer}>
                 <Icon name="star-outline" color="grey" size={20} />
-            </View>
+            </View> */}
+
+            {
+                isLoading 
+                    ? <ActivityIndicator size={35} color="grey" style={{marginTop:20}} />
+                    : <MovieDetail movie={movieObtenida!} creditos={creditos} />
+            }
 
         </ScrollView>
     )

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native';
+import dineroFormatter  from 'currency-formatter';
+
 import { CredistInterface } from '../interface/creditsInterface';
 import { MovieFullInterface } from '../interface/movieInterface';
 import Icon from 'react-native-vector-icons/Ionicons';

@@ -1,10 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native';
-import dineroFormatter  from 'currency-formatter';
+import dineroFormatter from 'currency-formatter';
 
-import { CredistInterface } from '../interface/creditsInterface';
+import { Cast, CredistInterface } from '../interface/creditsInterface';
 import { MovieFullInterface } from '../interface/movieInterface';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { CreditsItem } from '../components/CreditsItem';
 
 interface Props {
     movie: MovieFullInterface,
@@ -37,13 +38,19 @@ export const MovieDetail = ({ movie, creditos }: Props) => {
                 <Text style={{ fontSize: 23, marginTop: 10, fontWeight: 'bold' }}>
                     Presupuesto
                 </Text>
-                <Text style={{fontSize:18}}>
-                    {dineroFormatter.format(movie.budget, {code:'USD'}) }
+                <Text style={{ fontSize: 18 }}>
+                    {dineroFormatter.format(movie.budget, { code: 'USD' })}
                 </Text>
 
             </View>
 
-
+            {/* Creadistos */}
+            <View style={{marginTop: 10, marginBottom:100}}>
+                <Text style={{ fontSize: 23, marginTop: 10, fontWeight: 'bold', marginHorizontal: 20 }}>
+                    Actores
+                </Text>
+                <CreditsItem actor={creditos[0]} />
+            </View>
         </>
     )
 }

@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     imageContainer: {
         flex:1,
         borderRadius:18,
+        // Sombras
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -59,5 +60,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.24,
         shadowRadius: 7,
         elevation: 20
+        // -- Sombras
     }
 });

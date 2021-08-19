@@ -8,7 +8,7 @@ import { ArgumentosNecesarios } from '../navigation/Navigation';
 // npm i --save-dev @types/react-native-vector-icons
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useMovieDetails } from '../hooks/useMovieDetails';
-import { MovieDetail } from '../hooks/MovieDetail';
+import { MovieDetail } from '../components/MovieDetail';
 
 const altoDeLaVentana = Dimensions.get('screen').height;
 

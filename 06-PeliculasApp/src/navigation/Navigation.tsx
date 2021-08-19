@@ -14,7 +14,7 @@ const Stack = createStackNavigator<ArgumentosNecesarios>();
 
 export const MyStackNavigation =() => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false, cardStyle:{backgroundColor:'white'}}} >
+    <Stack.Navigator screenOptions={{headerShown: false, cardStyle:{/* backgroundColor:'grey' */}}} >
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="DetailScreen" component={DetailScreen} />
     </Stack.Navigator>

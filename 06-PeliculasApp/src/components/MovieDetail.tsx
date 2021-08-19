@@ -1,11 +1,11 @@
 import React from 'react'
-import { Text, View } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import dineroFormatter from 'currency-formatter';
 
 import { Cast, CredistInterface } from '../interface/creditsInterface';
 import { MovieFullInterface } from '../interface/movieInterface';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { CreditsItem } from '../components/CreditsItem';
+import { CreditsItem } from './CreditsItem';
 
 interface Props {
     movie: MovieFullInterface,
@@ -45,11 +45,20 @@ export const MovieDetail = ({ movie, creditos }: Props) => {
             </View>
 
             {/* Creadistos */}
-            <View style={{marginTop: 10, marginBottom:100}}>
+            <View style={{ marginTop: 10, marginBottom: 100 }}>
                 <Text style={{ fontSize: 23, marginTop: 10, fontWeight: 'bold', marginHorizontal: 20 }}>
                     Actores
                 </Text>
-                <CreditsItem actor={creditos[0]} />
+                <FlatList 
+                    data={creditos} 
+                    keyExtractor={(item) => item.id.toString()} 
+                    renderItem={({ item }) => <CreditsItem actor={item} />}
+                    horizontal={true} 
+                    showsHorizontalScrollIndicator={false}
+                    style={{marginTop:10, height: 100}}
+                    />
+
+                {/* <CreditsItem actor={creditos[0]} /> */}
             </View>
         </>
     )

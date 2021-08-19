@@ -13,8 +13,11 @@ export const CreditsItem = (props: Props) => {
 
     return (
         <View style={styles.container}>
-            <Image source={{uri}} style={{width:50, height:50, borderRadius:10}}
-             />
+            {
+                props.actor.profile_path && (
+                    <Image source={{uri}} style={{width:50, height:50, borderRadius:10}}/>
+                )
+            }
             <View style={styles.actoInfo}>
                 <Text style={{fontSize: 18, fontWeight: 'bold'}}>
                     {props.actor.name}
@@ -42,9 +45,14 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         elevation: 20,
         // --Sombras abajo
-        marginBottom:40
+        marginBottom:40,
+        marginLeft: 20,
+        marginRight:0,
+        paddingRight: 10,
+        height: 51
     },
     actoInfo:{
-        marginLeft: 10
+        marginLeft: 10,
+        marginTop: 4
     }
 })

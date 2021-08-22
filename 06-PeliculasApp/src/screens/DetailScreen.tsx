@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
-import { Dimensions, ScrollView, ActivityIndicator } from 'react-native';
+import { Dimensions, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { Movie } from '../interface/movieInterface';
 import { ArgumentosNecesarios } from '../navigation/Navigation';
@@ -16,7 +16,7 @@ const altoDeLaVentana = Dimensions.get('screen').height;
 // Mapeando a que esta view 'DetailScreen' debe tener un argumento de tipo MOvie
 interface Props extends StackScreenProps<ArgumentosNecesarios, 'DetailScreen'> { };
 
-export const DetailScreen = ({ route }: Props) => {
+export const DetailScreen = ({ route, navigation }: Props) => {
 
     // const movie = route.params as Movie;
     const movie = route.params;
@@ -26,11 +26,11 @@ export const DetailScreen = ({ route }: Props) => {
 
     const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
-    const {isLoading, movieObtenida, creditos} = useMovieDetails(movie.id);
-    
-    console.log('creditos: ',creditos);
-    
-    
+    const { isLoading, movieObtenida, creditos } = useMovieDetails(movie.id);
+
+    console.log('creditos: ', creditos);
+
+
 
     return (
         <ScrollView>
@@ -50,10 +50,24 @@ export const DetailScreen = ({ route }: Props) => {
             </View> */}
 
             {
-                isLoading 
-                    ? <ActivityIndicator size={35} color="grey" style={{marginTop:20}} />
+                isLoading
+                    ? <ActivityIndicator size={35} color="grey" style={{ marginTop: 20 }} />
                     : <MovieDetail movie={movieObtenida!} creditos={creditos} />
             }
+
+            {/* Boton para cerrar */}
+            <View style={styles.backButton} >
+
+                <TouchableOpacity
+                onPress={() => navigation.pop()}
+                >
+                    <Icon
+                        color="red"
+                        name="arrow-back-outline"
+                        size={100}
+                    />
+                </TouchableOpacity>
+            </View>
 
         </ScrollView>
     )
@@ -107,5 +121,12 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold'
+    },
+    backButton: {
+        // position: 'absolute',
+        zIndex: 999,
+        // elevation: 9,
+        // top: 30,
+        // left: 5
     }
 })
